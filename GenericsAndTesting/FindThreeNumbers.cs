@@ -8,7 +8,7 @@ namespace GenericsAndTesting
 {
     public class FindThreeNumbers
     {
-        public double FindMaxNumber(double number1, double number2, double number3)
+        public string FindMaxNumber(string number1, string number2, string number3)
         {
             if ((number1.CompareTo(number2) > 0) && (number1.CompareTo(number3) > 0))
             {
