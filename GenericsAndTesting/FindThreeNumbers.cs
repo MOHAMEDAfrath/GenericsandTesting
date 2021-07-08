@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace GenericsAndTesting
 {
+    /// <summary>
+    ///Using generics with extending IComparable 
+    /// </summary>
+   
     public class FindThreeNumbers<T> where T : IComparable
     {
         public T number1, number2, number3;
         public T[] array;
+        //Constructor Default
         public FindThreeNumbers(T[] array)
         {
             this.array = array;
         }
+        //Parameterized constructor
         public FindThreeNumbers(T number1, T number2, T number3)
         {
             this.number1 = number1;
@@ -21,6 +27,7 @@ namespace GenericsAndTesting
             this.number3 = number3;
 
         }
+        //generic function
         public T FindMaxNumber(T number1, T number2, T number3)
         {
             if ((number1.CompareTo(number2) > 0) && (number1.CompareTo(number3) > 0))
@@ -38,6 +45,7 @@ namespace GenericsAndTesting
         }
         public T[] sorting(T[] array)
         {
+            //inbuilt sort method
             Array.Sort(this.array);
             return this.array;
         }
@@ -53,7 +61,7 @@ namespace GenericsAndTesting
         }
         public T MaxArray()
         {
-            Console.WriteLine(MaxFromArray(sorting(this.array)));
+            Console.WriteLine("The max element in array {0}",MaxFromArray(sorting(this.array)));
             return(MaxFromArray(sorting(this.array)));
         }
     }
