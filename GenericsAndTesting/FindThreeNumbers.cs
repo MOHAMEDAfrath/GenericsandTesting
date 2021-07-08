@@ -9,6 +9,11 @@ namespace GenericsAndTesting
     public class FindThreeNumbers<T> where T : IComparable
     {
         public T number1, number2, number3;
+        public T[] array;
+        public FindThreeNumbers(T[] array)
+        {
+            this.array = array;
+        }
         public FindThreeNumbers(T number1, T number2, T number3)
         {
             this.number1 = number1;
@@ -31,20 +36,29 @@ namespace GenericsAndTesting
                 return number3;
             }
         }
-        public T sorting(T[] array)
+        public T[] sorting(T[] array)
         {
-            Array.Sort(array);
-            return array[array.Length - 1];
+            Array.Sort(this.array);
+            return this.array;
+        }
+        public T MaxFromArray(T[] array)
+        {
+            return this.array[^1];
         }
         public T Max()
         {
             T max = FindMaxNumber(this.number1, this.number2, this.number3);
             return max;
-   
+
         }
-        
-        
-   
-        
+        public T MaxArray()
+        {
+            Console.WriteLine(MaxFromArray(sorting(this.array)));
+            return(MaxFromArray(sorting(this.array)));
+        }
     }
+
 }
+        
+    
+
